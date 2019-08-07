@@ -4,29 +4,49 @@
 }
 
 <h1>Add a new game to your library</h1>
+<br />
 
 <form method="post">
-    <label asp-for="Title"></label>
-    <input asp-for="Title" />
-    <span asp-validation-for="Title"></span>
-    <br />
+    <div class="form-group">
+        <div class="form-group-inline row">
+            <label asp-for="Title" class="col-md-auto col-form-label"></label>
+            <div class="col-auto">
+                <input asp-for="Title" />
+            </div>
+            <span asp-validation-for="Title"></span>
+        </div>
+        <br />
 
-    <label asp-for="Rating"></label>
-    <input asp-for="Rating" />
-    <span asp-validation-for="Rating"></span>
-    <br />
+        <div class="form-group-inline row">
+            <label asp-for="Rating" class="col-md-auto col-form-label"></label>
+            <div class="form-group-inline">
+                <input asp-for="Rating" />
+            </div>
+                <span asp-validation-for="Rating"></span>
+            </div>
+        <br />
 
-    <label asp-for="Description"></label>
-    <input asp-for="Description" />
-    <span asp-validation-for="Description"></span>
-    <br />
+        <div class="form-group-inline row">
+            <label asp-for="Description" class="col-md-auto col-form-label"></label>
+            <div class="col-auto">
+                <input asp-for="Description" />
+            </div>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <br />
 
-    <label asp-for="Price"></label>
-    <input asp-for="Price" />
-    <span asp-validation-for="Description"></span>
-    <br />
-
-    <input type ="submit" />
+        <div class="form-group-inline row">
+            <label asp-for="Price" class="col-md-auto col-form-label"></label>
+            <div class="col-auto">
+                <input asp-for="Price" />
+            </div>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <br />
+        <input type="submit" />
+    </div>
+        
+    
 </form>
 
 @*
