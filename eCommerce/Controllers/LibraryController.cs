@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eCommerce.Data;
 using eCommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,13 @@ namespace eCommerce.Controllers
 {
     public class LibraryController : Controller
     {
+        private readonly GameContext _context;
+        
+        // Passes DBcontext to controller with constructor
+        public LibraryController(GameContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
