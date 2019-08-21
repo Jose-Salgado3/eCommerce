@@ -67,5 +67,16 @@ namespace eCommerce.Data
                            select game).SingleOrDefaultAsync();
             return g;
         }
+
+        public static async Task DeleteById(int id, GameContext context)
+        {
+            // Create Video game object with the id of the game that I want to remove from the DB
+            VideoGame g = new VideoGame()
+            {
+                Id = id
+            };
+            context.Entry(g).State = EntityState.Deleted;
+            await context.SaveChangesAsync();
+        }
     }
 }
