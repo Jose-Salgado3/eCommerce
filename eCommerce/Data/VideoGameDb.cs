@@ -35,6 +35,23 @@ namespace eCommerce.Data
         }
 
         /// <summary>
+        /// Returns the total number of pages needed to have <paramref name="pageSize"/> 
+        ///     amount of products.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public static async Task<int> GetTotalPages(GameContext context, int pageSize)
+        {
+            //Get total amount of games
+            int totalNumGames = context.VideoGames.Count();
+            //Partial number of pages
+            double pages = (double)totalNumGames / pageSize;
+            //Rounds up to the next integer.
+            return (int)Math.Ceiling(pages);
+        }
+
+        /// <summary>
         /// Adds a VideoGame to the data store and sets the ID value
         /// </summary>
         /// <param name="g">The game to add</param>
