@@ -13,6 +13,28 @@ namespace eCommerce.Data
     public static class VideoGameDb
     {
         /// <summary>
+        /// Returns 1 page worth of products. Products are sorted alphabetically by Title.
+        /// </summary>
+        /// <param name="context">The db context</param>
+        /// <param name="pageNum">The page number for the product</param>
+        /// <param name="pageSize">The number of products for page</param>
+        /// <returns></returns>
+        public static async Task<List<VideoGame>>
+            GetGamesByPage(GameContext context, int pageNum, int pageSize)
+        {
+            // Make sure to call skip BEFORE take
+            // Make sure orderby comes first
+            List<VideoGame> games = await
+                context.VideoGames
+                       .OrderBy(vg => vg.Title)
+                       .Skip((pageNum - 1) * pageSize)
+                       .Take(pageSize)
+                       .ToListAsync();
+
+            return games;
+        }
+
+        /// <summary>
         /// Adds a VideoGame to the data store and sets the ID value
         /// </summary>
         /// <param name="g">The game to add</param>
