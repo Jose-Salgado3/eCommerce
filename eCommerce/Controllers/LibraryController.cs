@@ -44,5 +44,13 @@ namespace eCommerce.Controllers
             //Return veiw with model including error messages
             return View(game);
         }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            //Get the single video game out of the db
+            VideoGame game = await VideoGameDb.GetGameById(id, _context);
+            
+            return View(game);
+        }
     }
 }
