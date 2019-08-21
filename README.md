@@ -13,6 +13,7 @@ The eCommerce application is written in C# using the MVC(Models, Views, Controle
 #### Pre-Requisites
 * Your computer must be running [Windows 10](https://www.microsoft.com/en-us/store/b/windows?activetab=tab%3ashopwindows10) or newer.
 * [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/) 2017 or higher.
+* [.NET 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) 
 * [NuGet v3.3.0](https://www.nuget.org/downloads) or higher.
 * Microsoft [EntityFrameWorkCore](https://docs.microsoft.com/en-us/ef/core/get-started/install/) 2.2.2( or higher).
 
