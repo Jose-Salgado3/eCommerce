@@ -43,5 +43,29 @@ namespace eCommerce.Data
                                     .ToListAsync();
             return games;
         }
+
+        public static async Task<VideoGame> UpdateGame(VideoGame g, GameContext context)
+        {
+            //Starts tracking to get to update
+            context.Update(g);
+            //Await because this is touching the DB for the update
+            await context.SaveChangesAsync();
+            return g;
+        }
+
+
+        /// <summary>
+        /// Gets a game with a specified id, If no game is found null is returned
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static async Task<VideoGame> GetGameById(int id, GameContext context)
+        {
+            VideoGame g = await (from game in context.VideoGames
+                           where game.Id == id
+                           select game).SingleOrDefaultAsync();
+            return g;
+        }
     }
 }
